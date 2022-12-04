@@ -1,23 +1,26 @@
 import {readFileSync} from 'fs';
 
+const topX = 3;
+
 const contents = readFileSync("2022/1/data.txt", 'utf-8');
 const arr = contents.split(/\r?\n/);
 
-let elf = 1;
 let calories = 0;
-let maxElf = 0;
-let maxCalories = 0;
+let elves = []
 arr.forEach(item => {
     if (!item) {
-        if (calories > maxCalories) {
-            maxElf = elf;
-            maxCalories = calories;
-        }
-        elf++;
+        elves.push(calories);
         calories = 0;
         return;
     }
     calories += parseInt(item);
 })
+elves.push(calories);
 
-console.log("Elf " + maxElf + " carries the most calories (" + maxCalories + ").")
+elves = elves.sort(function (a, b) { return a - b });
+let totalCalories = 0;
+for (let i = 0; i < topX; i++) {
+    totalCalories += elves.pop();
+}
+
+console.log("The top " + topX + " elves carry " + totalCalories + " calories.")
