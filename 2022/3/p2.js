@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 
-const contents = readFileSync("2022/3/data.txt", "utf-8");
+const contents = readFileSync("data.txt", "utf-8");
 const arr = contents.split(/\r?\n/);
 
 function score(c) {

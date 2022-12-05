@@ -2,7 +2,7 @@ import {readFileSync} from 'fs';
 
 const topX = 3;
 
-const contents = readFileSync("2022/1/data.txt", 'utf-8');
+const contents = readFileSync("data.txt", 'utf-8');
 const arr = contents.split(/\r?\n/);
 
 let calories = 0;

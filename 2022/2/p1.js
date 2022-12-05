@@ -46,7 +46,7 @@ function decrypt(a) {
     return res;
 }
 
-const contents = readFileSync("2022/2/data.txt", "utf-8");
+const contents = readFileSync("data.txt", "utf-8");
 const arr = contents.split(/\r?\n/);
 
 let totalScore = 0;
